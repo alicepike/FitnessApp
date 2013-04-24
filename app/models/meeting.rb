@@ -1,3 +1,4 @@
 class Meeting < ActiveRecord::Base
-  attr_accessible :location, :meeting_at
+  has_many(:users)
+  belongs_to(:exercise_class)
 end

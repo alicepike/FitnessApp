@@ -1,3 +1,4 @@
 class ExerciseClass < ActiveRecord::Base
-  attr_accessible :description, :instructor, :location, :name
+  has_many(:locations,:users)
+
 end

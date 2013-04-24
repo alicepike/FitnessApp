@@ -1,3 +1,3 @@
 class Instructor < ActiveRecord::Base
-  attr_accessible :age, :name, :type
+	has_many(:meetings)
 end
