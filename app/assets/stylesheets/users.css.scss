@@ -1,0 +1,18 @@
+/* Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+/* You can use Sass (SCSS) here: http://sass-lang.com/ */
+
+body {
+	background: blue;
+	color: white;
+}
+
+.edit_user {
+	font-family: sans-serif;
+	font-weight: bold;
+	background: rgba(23,54,32,0.2);
+	width: 250px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 5px;
+}

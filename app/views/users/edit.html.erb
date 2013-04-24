@@ -1,0 +1,7 @@
+<h1>Edit</h1>
+
+<%= form_for(@user, :html => {:class => "edit_user"}) do |f| %>
+	Username: <%= f.text_field :username %>
+	<%= f.submit %>
+
+<% end %>
