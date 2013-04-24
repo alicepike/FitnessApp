@@ -2,14 +2,14 @@
 
 <% if @user.errors().any?() %>
 	<% @user.errors().full_messages().each() do |error| %>
-		<%= "Sorry you can't save your user because: you cannot enter a username under 3 characters" %>
+		<%= error %>
 
 	<% end %>
 
 <% end %>
 
 <%= form_for(@user) do |f| %>
-	Username: <%= f.text_field :username%>
-	Password: <%= f.password_field :password%>
+	<%= f.label(:username,"Username:") %> <%= f.text_field :username%>
+	<%= f.label(:password, "Password:") %> <%= f.password_field :password%>
 	<%= f.submit %>
 <% end %>
