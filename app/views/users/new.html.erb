@@ -1,8 +1,10 @@
 <h1>Sign up</h1>
 
 <% if @user.errors().any?() %>
-	<% @user.errors().full_messages.each %>
-	<%= "Sorry your username must be over 3 characters long" %>
+	<% @user.errors().full_messages().each() do |error| %>
+		<%= "Sorry you can't save your user because: you cannot enter a username under 3 characters" %>
+
+	<% end %>
 
 <% end %>
 
