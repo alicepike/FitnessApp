@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
 	validates :username, :format => { :with => /\A[A-z]+\Z/,
 		:message => "Username can only contain letters a-z" }
 
+	has_many(:meetings,:ratings)
+
 end
