@@ -11,5 +11,6 @@
 <%= form_for(@user) do |f| %>
 	<%= f.label(:username,"Username:") %> <%= f.text_field :username%>
 	<%= f.label(:password, "Password:") %> <%= f.password_field :password%>
+	Confirm: <%= f.password_field(:password_confirmation) %>
 	<%= f.submit %>
 <% end %>

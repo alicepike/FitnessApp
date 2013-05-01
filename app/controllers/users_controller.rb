@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
 	# POST /users
 	def create
-		@user = User.create(params[:user].slice(:username))
+		@user = User.create(params[:user].slice(:username,:password,:password_confirmation))
 
 		if @user.valid?
 			redirect_to(@user)
@@ -23,8 +23,11 @@ class UsersController < ApplicationController
 	end
 	
 	#GET /users/me
-	def me
-		@user
+	def show
+		user_id = params[:id]
+		@user = User.find(user_id)
+		@classes_attended = @user.meetings()
+		@user_ratings = @user.ratings()
 	end
 
 	# GET /users/:id/edit
