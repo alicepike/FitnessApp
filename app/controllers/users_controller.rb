@@ -22,9 +22,9 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	#GET /users/:id
-	def show
-		@user = User.find(params[:id])
+	#GET /users/me
+	def me
+		@user
 	end
 
 	# GET /users/:id/edit
