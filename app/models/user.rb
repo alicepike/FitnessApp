@@ -7,13 +7,16 @@ class User < ActiveRecord::Base
 
 	has_many(:meetings,:ratings)
 
+	has_secure_password()
+
 	def self.authenticate(email,password)
 		#find user
 		user = User.find_by_email(email)
 
 		#check password
-		user.try(:authenticate,password)
-
+		return false unless user
+			
+		user.authenticate(password)
 	end
 
 end
