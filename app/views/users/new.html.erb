@@ -14,3 +14,12 @@
 	Confirm: <%= f.password_field(:password_confirmation) %>
 	<%= f.submit %>
 <% end %>
+
+<h1>Login</h1>
+
+<%= form_tag(sessions_path, :method => "post") do %>
+  <%= label_tag(:username, "Username:") %> <%= text_field_tag(:username) %>
+  <%= label_tag(:password, "Password:") %> <%= password_field_tag(:password) %>
+  
+  <%= submit_tag("Login") %>
+<% end %>

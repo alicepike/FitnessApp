@@ -18,19 +18,9 @@ class User < ActiveRecord::Base
 		end 
 	end
 
-	has_many(:meetings)
+	has_and_belongs_to_many(:meetings)
 	has_many(:ratings)
 
 	has_secure_password()
-
-	def self.authenticate(email,password)
-		#find user
-		user = User.find_by_email(email)
-
-		#check password
-		return false unless user
-			
-		user.authenticate(password)
-	end
 
 end

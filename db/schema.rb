@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501193637) do
+ActiveRecord::Schema.define(:version => 20130508182648) do
 
   create_table "exercise_classes", :force => true do |t|
     t.string   "name"
@@ -42,11 +42,20 @@ ActiveRecord::Schema.define(:version => 20130501193637) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "meetings_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer  "scale"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "user_id"
+    t.integer  "exercise_class_id"
   end
 
   create_table "users", :force => true do |t|
