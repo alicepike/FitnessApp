@@ -2,6 +2,9 @@ FitnessApp::Application.routes.draw do
 
   resources :users
   resources :sessions
+  match 'exercise_classes/results' => 'exercise_classes#results', :as => :exercise_classes_results, :via => ['GET']
+  resources :exercise_classes
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

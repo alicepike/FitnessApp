@@ -1,0 +1,6 @@
+
+<%= form_tag(exercise_classes_results_path, :method => "get") do %>
+	<%= label_tag(:location,"Location:") %> <%= text_field_tag(:location) %>
+
+	<%= submit_tag("Search")%>
+	<% end %>
