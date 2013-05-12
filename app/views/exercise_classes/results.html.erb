@@ -3,6 +3,9 @@
 
 <ul>
 <% @exercise_classes.each do |exercise_class| %>
-	<li>Class name: <%= exercise_class.name %></li>
+
+	<li>Class name: <%= link_to(exercise_class.name, exercise_class) %></li>
 <% end %>
+
+<%= link_to("Go to home page", root_path) %>
 </ul>
