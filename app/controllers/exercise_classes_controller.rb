@@ -25,7 +25,17 @@ class ExerciseClassesController < ApplicationController
 	end
 
 	def results
-		@exercise_classes = ExerciseClass.where(:location => params[:location])
+		# params = {"location":"asd","date":{"year":"2013","month":"5","day":"13"}}
+
+		# Create a datetime object out of the params date key
+		my_date = DateTime.civil(
+			params[:date][:year].to_i,
+			params[:date][:month].to_i,
+			params[:date][:day].to_i
+		)
+
+		# Add it in the where clause
+		@exercise_classes = ExerciseClass.where(:location => params[:location], :start_time => my_date)
 	end
 
 
