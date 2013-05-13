@@ -11,6 +11,8 @@ class ExerciseClassesController < ApplicationController
 	end
 
 	def show
+		class_id = params["id"]
+		@exercise_class = ExerciseClass.find(class_id)
 	end
 
 	def edit 
