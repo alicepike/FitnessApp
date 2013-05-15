@@ -1,6 +1,12 @@
 
 <%= form_tag(exercise_classes_results_path, :method => "get") do %>
-	<%= label_tag(:location,"Location:") %> <%= text_field_tag(:location) %>
-	<%= label_tag(:start_time,"Start Time:") %> <%= select_date DateTime.now %>
-	<%= submit_tag("Search") %>
+	<p><%= label_tag(:location,"Location:") %> <%= text_field_tag(:location) %></p>
+	<p><%= label_tag(:start_time,"Start Time:") %> <%= select_date DateTime.now %></p>
+	<p><%= label_tag(:category, "Category:") %>
+
+	<%= select_tag(:category, options_for_select([['Toning', "toning"], ['Cardio', "cardio"], ['Sport', "sport"], ['Flexibility', "flexibility"], ['Endurance', "endurance"], ['Weights', "weights"]])) %></p>
+
+
+
+	<p><%= submit_tag("Search") %></p>
 <% end %>
