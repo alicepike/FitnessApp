@@ -1,3 +1,11 @@
 <h3><%= @exercise_class.name %></h3>
 
 <p><%= @exercise_class.start_time %></p>
+
+<p><%= @exercise_class.location %></p>
+
+<h3>Class Ratings</h3>
+<% @exercise_class.ratings.each do |rating| %>
+	<%= render :partial => 'rating', :locals => {:rating => rating} %>	
+<% end %>
+

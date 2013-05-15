@@ -12,3 +12,4 @@ class UserTest < ActiveSupport::TestCase
    	assert_includes user.errors, :username 
    end
 end
+

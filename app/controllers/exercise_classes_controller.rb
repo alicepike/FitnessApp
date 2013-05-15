@@ -35,7 +35,11 @@ class ExerciseClassesController < ApplicationController
 		)
 
 		# Add it in the where clause
-		@exercise_classes = ExerciseClass.where(:location => params[:location], :start_time => my_date)
+		@exercise_classes = ExerciseClass.where(
+			:start_time => my_date.beginning_of_day..my_date.end_of_day
+		).where(
+			"location like ?", "%#{params[:location]}%"
+		)
 	end
 
 
