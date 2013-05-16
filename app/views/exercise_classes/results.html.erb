@@ -5,7 +5,10 @@
 <% @exercise_classes.each do |exercise_class| %>
 
 	<li>Class name: <%= link_to(exercise_class.name, exercise_class) %></li>
+	<%= button_to "Attend", attend_user_path(:exercise_class_id => exercise_class.id), :method => :post %>
 <% end %>
+
+
 
 <%= link_to("Go to home page", root_path) %>
 </ul>

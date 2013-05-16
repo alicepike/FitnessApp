@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 	end
 
 
-	has_and_belongs_to_many(:meetings)
+	has_and_belongs_to_many(:exercise_classes)
 	has_many(:ratings)
 
 	has_secure_password()

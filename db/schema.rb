@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515182643) do
+ActiveRecord::Schema.define(:version => 20130515192447) do
 
   create_table "exercise_classes", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20130515182643) do
     t.datetime "updated_at",  :null => false
     t.datetime "start_time"
     t.string   "category"
+  end
+
+  create_table "exercise_classes_users", :force => true do |t|
+    t.integer  "exercise_class_id"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "instructors", :force => true do |t|

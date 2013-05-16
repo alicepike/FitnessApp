@@ -4,6 +4,12 @@ FitnessApp::Application.routes.draw do
   resources :sessions
   match 'exercise_classes/results' => 'exercise_classes#results', :as => :exercise_classes_results, :via => ['GET']
   resources :exercise_classes
+  resource  :user, :controller => 'user', :only => ['edit', 'update', 'show'] do
+    member do
+      post 'attend'
+    end
+  end
+
 
 
   # The priority is based upon order of creation:
