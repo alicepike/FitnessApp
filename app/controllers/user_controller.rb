@@ -4,6 +4,9 @@ class UserController < ApplicationController
 		# TODO create ExerciseClassUser record, if doesn't already exist
 	end
 
+	def rate
+	end
+
 	# TODO move over methods from UsersController - edit,update,show (views) - create User folder in view
 
 	# GET /users/:id/edit
@@ -15,7 +18,7 @@ class UserController < ApplicationController
 	def show
 		user_id = params[:id]
 		@user = User.find(user_id)
-		@classes_attended = @user.meetings()
+		@classes_attended = @user.exercise_classes()
 		@user_ratings = @user.ratings()
 	end
 

@@ -4,9 +4,11 @@ FitnessApp::Application.routes.draw do
   resources :sessions
   match 'exercise_classes/results' => 'exercise_classes#results', :as => :exercise_classes_results, :via => ['GET']
   resources :exercise_classes
+  match 'user/:id' => 'user#show', :as => :user_home_page, :via => ['GET']
   resource  :user, :controller => 'user', :only => ['edit', 'update', 'show'] do
     member do
       post 'attend'
+      post 'rating'
     end
   end
 
