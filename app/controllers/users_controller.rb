@@ -14,29 +14,13 @@ class UsersController < ApplicationController
 	# POST /users
 	def create
 		@user = User.create(params[:user].slice(:username,:password,:password_confirmation))
-
 		if @user.valid?
-			redirect_to(@user)
+            @user.save
+            flash[:notice] = "Thank you for signing up, you can now log in."
+			redirect_to(root_path)
 		else
 			render(:new)
 		end
 	end
 	
-	#GET /users/me
-	def show
-		user_id = params[:id]
-		@user = User.find(user_id)
-		@classes_attended = @user.meetings()
-		@user_ratings = @user.ratings()
-	end
-
-	# GET /users/:id/edit
-	def edit
-		@user = User.find(params[:id])
-	end
-
-	def update
-	end
-
-
 end

@@ -13,10 +13,8 @@
 		<%= error %>
 
 	<% end %>
-
 <% end %>
 
-<form>
 <%= form_for(@user) do |f| %>
 	<%= f.label(:username,"Username:") %> <%= f.text_field :username%>
 	<%= f.label(:password,"Password:") %> <%= f.password_field :password%>
@@ -24,22 +22,17 @@
 	<%= f.submit %>
 <% end %>
 
-</form>
-
 </div>
 
 <div id="login_box" class="box">
 
 <h2>Login</h2>
 
-<form>
 <%= form_tag(sessions_path, :method => "post") do %>
   <%= label_tag(:username, "Username:") %> <%= text_field_tag(:username) %>
   <%= label_tag(:password, "Password:") %> <%= password_field_tag(:password) %>
-  
   <%= submit_tag("Login") %>
 <% end %>
-</form>
 </div>
 
 <div id="links">
