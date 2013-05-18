@@ -1,4 +1,13 @@
-<h1>Sign up</h1>
+<body>
+
+<div id="title">
+<h1>Find Your Fitness</h1>
+<p>....it's waiting for you</p>
+</div>
+
+<div id="signup_box" class="box">
+
+<h2>Sign up</h2>
 
 <% if @user.errors().any?() %>
 	<% @user.errors().full_messages().each() do |error| %>
@@ -8,18 +17,43 @@
 
 <% end %>
 
+<form>
 <%= form_for(@user) do |f| %>
 	<%= f.label(:username,"Username:") %> <%= f.text_field :username%>
-	<%= f.label(:password, "Password:") %> <%= f.password_field :password%>
+	<%= f.label(:password,"Password:") %> <%= f.password_field :password%>
 	Confirm: <%= f.password_field(:password_confirmation) %>
 	<%= f.submit %>
 <% end %>
 
-<h1>Login</h1>
+</form>
 
+</div>
+
+<div id="login_box" class="box">
+
+<h2>Login</h2>
+
+<form>
 <%= form_tag(sessions_path, :method => "post") do %>
   <%= label_tag(:username, "Username:") %> <%= text_field_tag(:username) %>
   <%= label_tag(:password, "Password:") %> <%= password_field_tag(:password) %>
   
   <%= submit_tag("Login") %>
 <% end %>
+</form>
+</div>
+
+<div id="links">
+
+	<a href="facebook.com" target="_blank">
+		<img src="images/social-icon-facebook.png"></a>
+
+	<a href="twitter.com" target="_blank">
+		<img src="images/social-icon-twitter.png"></a>
+
+	<a href="pinterest.com" target="_blank">
+		<img src="images/social-icon-pinterest.png"></a>
+</div> <!-- #links -->
+
+
+</body>
