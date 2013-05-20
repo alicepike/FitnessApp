@@ -4,6 +4,7 @@ FitnessApp::Application.routes.draw do
 
   resources :sessions
   resources :exercise_classes
+  resource :me, :controller => 'user', :only => ['show']
   resources :users, :controller => 'users', :only => ['index', 'new', 'create']
   resource  :user, :controller => 'user', :only => ['edit', 'update', 'show'] do
     member do

@@ -2,6 +2,17 @@ class UserController < ApplicationController
 
 	def attend
 		# TODO create ExerciseClassUser record, if doesn't already exist
+		user_id = session["user_id"]
+		@user = User.find(user_id)
+		@exercise_class = params[:exercise_class_id]
+		@exercise_class = ExerciseClass.find(@exercise_class)
+
+
+		@exercise_class.users.push(@user)
+		@exercise_class.save
+		
+		redirect_to exercise_classes_results_path
+
 	end
 
 	def rate
@@ -16,10 +27,27 @@ class UserController < ApplicationController
 
 	#GET /users/me
 	def show
-		user_id = params[:id]
-		@user = User.find(user_id)
-		@classes_attended = @user.exercise_classes()
-		@user_ratings = @user.ratings()
+
+		# Get the user ID
+		user_id = session["user_id"]
+
+		# Check the user id exists
+		if user_id != nil
+			# Get the user object
+			@user = User.find(user_id)
+			# render template
+			render(:me)
+
+		else
+			flash[:notice] = "You are not logged in"
+			redirect_to root_path
+
+		end
+
+		# user_id = params[:id]
+		# @user = User.find(user_id)
+		# @classes_attended = @user.exercise_classes()
+		# @user_ratings = @user.ratings()
 	end
 
 	def update
