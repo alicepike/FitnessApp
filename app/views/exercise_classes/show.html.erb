@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+
+<div id="container">
+
+<body>
+
 <h3><%= @exercise_class.name %></h3>
 
 <p><%= @exercise_class.start_time %></p>
@@ -8,4 +14,9 @@
 <% @exercise_class.ratings.each do |rating| %>
 	<%= render :partial => 'rating', :locals => {:rating => rating} %>	
 <% end %>
+
+</body>
+</div><!-- #container -->
+
+</html>
 

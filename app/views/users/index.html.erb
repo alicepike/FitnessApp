@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<body>
+
 <% @users.each do |user| %>
 	<%= user_name_with_title(user) %>
 	<%= render(:partial => "user_name",:locals => {:user => user}) %>
 <% end %> 
+
+</body>
+</html>
