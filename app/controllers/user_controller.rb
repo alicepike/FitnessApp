@@ -7,10 +7,8 @@ class UserController < ApplicationController
 		@exercise_class = params[:exercise_class_id]
 		@exercise_class = ExerciseClass.find(@exercise_class)
 
-
 		@exercise_class.users.push(@user)
-		@exercise_class.save
-		
+
 		redirect_to exercise_classes_results_path
 
 	end

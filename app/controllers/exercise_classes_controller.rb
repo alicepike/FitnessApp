@@ -40,6 +40,7 @@ class ExerciseClassesController < ApplicationController
 		).where(
 			"location like ?", "%#{params[:location]}%"
 		)
+
 	end
 
 

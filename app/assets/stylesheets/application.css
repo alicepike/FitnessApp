@@ -12,5 +12,9 @@
  *= require_tree .
  */
 
+ body {
+ 	background: url( <%= asset_data_uri 'OpenRoadBackground.png' %>)
+ }
+
 
 
